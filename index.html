@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Fitrah.JS" >
+    <meta property="og:image" content="./img/kece.png" >
+    <meta property="og:description" content="This is my portfolio website."/>
+    <link rel="icon" type="image/png" href="./img/logo/astra.png">
+    <title>My Portfolio</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" class="logo">RayhanCode.</a>     
+      <div class="menu-mob">
+        <i class="modes bx bxs-moon"></i>
+      <i class="bx bx-menu" id="menu-icon"></i>
+      </div>
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#portfolio">Portfolio</a>
+        <i class="modes bx bxs-moon"></i>
+      </nav>
+    </header>
+
+    <section class="home" id="home">
+      <div class="home-content">
+        <h3>Hi, my Name is</h3>
+        <h1>Raihan Adhie Nugroho</h1>
+        <h3>I'm a <span class="typingjs"></span></h3>
+        <div class="social-media"></div>
+      </div>
+
+      <div class="home-img">
+        <img src="img/kece.png" alt="" />
+      </div>
+    </section>
+
+    <!-- about -->
+    <section class="about" id="about">
+      <div class="about-img">
+        <img  id="myLogoImage" src="img/logo/astra.png" alt="unknown logo"/>
+      </div>
+
+      <div class="about-content">
+        <h2 class="heading">About <span>Me!</span></h2>
+        <h3>I Like <span>Kotlin</span> </h3>
+        <p>
+          For some reason I prefer the Kotlin code style. Maybe because Java is used to onNext, onError, and onComplete times, it becomes easier to read.
+        </p>
+       <a href="https://en.wikipedia.org/wiki/Kotlin_(programming_language)" class="btn">Read More</a> 
+      </div>
+    </section>
+
+    <!-- service -->
+
+    <section class="skills" id="skills">
+      <h2 class="heading">My <span>Skills</span></h2>
+
+      <div class="skills-container">
+        <div class="skills-box">
+          <i class='bx bxl-android'></i>
+          <h3>Android Development</h3>
+          <p>
+            Elevate your user interface with minimalist design and with the striking of perfect balanced customization options
+          </p>
+          <!-- <a href="#" class="btn">Read More</a> -->
+        </div>
+
+        <div class="skills-box">
+          <i class="bx bxl-xing"></i>
+          <h3>Kotlin</h3>
+          <p>
+            Kotlin is easy to learn, especially if you already know Java (it is 100% compatible with Java).
+          </p>
+          <!-- <a href="#" class="btn">Read More</a> -->
+        </div>
+
+        <div class="skills-box">
+          <i class="bx bxs-palette"></i>
+          <h3>Graphic Design</h3>
+          <p>Just editing videos/foto, logo, posters, blender3D, Unity</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <h2 class="heading">Latest <span>Project</span></h2>
+
+      <div class="portfolio-container">
+       
+        <div class="portfolio-box">
+          <img src="img/images-project/1.jpg" alt="" />
+          <div class="portfolio-layer">
+          </div>
+          <i class="arrows bx bx-chevron-up"></i>
+        </div>
+
+        <div class="portfolio-box">
+          <img src="img/images-project/2.jpg" alt="" />
+          <div class="portfolio-layer">
+          </div>
+          <i class="arrows bx bx-chevron-up"></i>
+        </div>
+      
+        <div class="portfolio-box">
+          <img src="img/images-project/4.jpg" alt="" />
+          <div class="portfolio-layer">
+          </div>
+          <i class="arrows bx bx-chevron-up"></i>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-text">
+        <p>&copy; 2023 | Rayhan Code</p>
+      </div>
+
+      <div class="footer-contact">
+        <a href="https://www.instagram.com/reyzzme" target="_blank"><i class="bx bxl-instagram"></i></a>
+        <a href="https://github.com/SayuZX" target="_blank" ><i class="bx bxl-github"></i></a>
+        <a href="https://wa.me/6281252353375"  target="_blank"><i class="bx bxl-whatsapp"></i></a>
+      </div>
+    </footer>
+
+   <!-- modal -->
+<div class="container-modal hidden">
+<section class="modal">
+
+</section>
+<div class="overlay"></div>
+</div>
+   <!-- akhir modal -->
+
+
+    <!-- scrool -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- typing -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <!-- js -->
+    <script src="main.js"></script>    
+    <script src="snow.js"></script>
+    <!-- efek salju-->
+    <canvas id="snowCanvas"></canvas>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+  const canvas = document.getElementById("snowCanvas");
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  function createSnowflake() {
+    return {
+      x: Math.random() * canvas.width,
+      y: -Math.random() * canvas.height,
+      radius: Math.random() * 3 + 1,
+      speed: Math.random() * 1 + 0.5,
+      opacity: Math.random() * 0.8 + 0.2, // Tambahkan opacity random
+      color: `rgba(255, 255, 255, ${Math.random()})`, // Warna salju acak
+    };
+  }
+
+  const snowflakes = [];
+
+  function drawSnowflake(snowflake) {
+    ctx.beginPath();
+    ctx.arc(snowflake.x, snowflake.y, snowflake.radius, 0, Math.PI * 2);
+    ctx.fillStyle = snowflake.color;
+    ctx.globalAlpha = snowflake.opacity; // Gunakan globalAlpha untuk transparansi
+    ctx.fill();
+    ctx.globalAlpha = 1; // Atur kembali globalAlpha ke nilai default
+  }
+
+  function updateSnowflake(snowflake) {
+    snowflake.y += snowflake.speed;
+
+    if (snowflake.y > canvas.height) {
+      snowflake.y = -Math.random() * canvas.height;
+      snowflake.x = Math.random() * canvas.width;
+    }
+  }
+
+  function animateSnow() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (Math.random() < 0.01) {
+      snowflakes.push(createSnowflake());
+    }
+
+    snowflakes.forEach((snowflake) => {
+      drawSnowflake(snowflake);
+      updateSnowflake(snowflake);
+    });
+
+    requestAnimationFrame(animateSnow);
+  }
+
+  animateSnow();
+});
+      </script>
+</body>    
+</html>
